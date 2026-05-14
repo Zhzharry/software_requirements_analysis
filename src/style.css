@@ -23,6 +23,8 @@ body {
   color: var(--color-text);
   background: var(--color-bg);
   line-height: 1.5;
+  /* 避免中文在窄 flex 网格中被当成「单字一列」拆开 */
+  word-break: keep-all;
 }
 
 a {

@@ -65,11 +65,11 @@ const course1002 = {
   syllabus: syllabus1002,
   comments: [
     { user: 'Cole', text: '课程资源：https://pan.baidu.com/s/1z2nnkoJZ2Sn6MxTETkuapw&pwd=9987', likes: 4, date: '2025-10-09 16:50' },
-    { user: '璇', text: '第125节课之后还有课吗', likes: 0, date: '2024-03-05 20:50', reply: '有的，全套课程可以关注公众号：黑马程序员，回复：领取资源01……' },
+    { user: '璇', text: '第125节课之后还有课吗', likes: 0, date: '2024-03-05 20:50', reply: '有的，全套课程可以关注公众号：白马程序员，回复：领取资源01……' },
   ],
   relatedCourses: [
     { title: 'Java入门到起飞，含斯坦福大学练习题+力扣算法题+大厂java面试题', level: '初级', learners: '1071530' },
-    { title: '前端Web开发HTML5+CSS3+移动web视频教程，前端web入门首选黑马程序员', level: '初级', learners: '616689' },
+    { title: '前端Web开发HTML5+CSS3+移动web视频教程，前端web入门首选白马程序员', level: '初级', learners: '616689' },
     { title: '全网首发AI+JavaWeb开发入门，Tlias教学管理系统项目实战全套视频教程', level: '初级', learners: '540137' },
     { title: 'Java+AI智能辅助编程，Java零基础入门到大牛一套通关', level: '初级', learners: '310761' },
     { title: '鸿蒙HarmonyOS4.0应用开发从入门到实战', level: '初级', learners: '131129' },

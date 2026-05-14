@@ -42,7 +42,7 @@ const trialCardCopy = {
     bonus: '报名即可获赠 学习路线规划与能力测评报告。',
   },
   default: {
-    title: '黑马精品学科',
+    title: '白马精品学科',
     sub: '多学科全国开班，具体课纲与周期以各校区公布为准。',
     hours: '详询校区',
     points: '详询',
@@ -213,7 +213,7 @@ const faqChunks = [
 
           <p class="prc__footnote">
             数据结构与优惠说明参考原站
-            <a href="https://www.itheima.com/pc/module/price/index.html?hm-pc-dh$hm-pc-dh$spk" target="_blank" rel="noopener noreferrer">黑马程序员各学科学费价格表</a>
+            <a href="https://www.itheima.com/pc/module/price/index.html?hm-pc-dh$hm-pc-dh$spk" target="_blank" rel="noopener noreferrer">白马程序员各学科学费价格表</a>
             （以官网最新公示为准）。
           </p>
         </div>

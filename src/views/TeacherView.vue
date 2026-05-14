@@ -125,7 +125,7 @@ const filterStandards = [
           </section>
 
           <section class="tp__block tp__block--gray">
-            <h2 class="tp__h2">黑马程序员专职课研人才 · 16级筛选标准（节选）</h2>
+            <h2 class="tp__h2">白马程序员专职课研人才 · 16级筛选标准（节选）</h2>
             <p class="tp__lead">
               教研工作是保障基础教育质量的重要支撑。坚持从源头严控教研师资质量，制定严格的筛选及考核体系，打造一支高素质专业化的教研队伍。
             </p>

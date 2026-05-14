@@ -44,7 +44,7 @@ const liveCourses = [
 
 const freeCourses = [
   { tag: '【JavaEE】', title: 'Java入门到起飞，含斯坦福大学练习题+力扣算法题+大厂java面试题', learners: '1069924人学习', date: '2022.04.27', hot: true, courseId: '1002' },
-  { tag: '【HTML&JS+前端】', title: '前端Web开发HTML5+CSS3+移动web视频教程，前端web入门首选黑马程序员', learners: '615908人学习', date: '2023.04.04', hot: true, courseId: '1002' },
+  { tag: '【HTML&JS+前端】', title: '前端Web开发HTML5+CSS3+移动web视频教程，前端web入门首选白马程序员', learners: '615908人学习', date: '2023.04.04', hot: true, courseId: '1002' },
   { tag: '【JavaEE】', title: '全网首发AI+JavaWeb开发入门，Tlias教学管理系统项目实战全套视频教程', learners: '538591人学习', date: '2024.10.23', hot: true, courseId: '1002' },
   { tag: '【JavaEE】', title: 'Java+AI智能辅助编程，Java零基础入门到大牛一套通关', learners: '309916人学习', date: '2024.07.31', hot: true, courseId: '1002' },
   { tag: '【鸿蒙应用开发】', title: '鸿蒙HarmonyOS4.0应用开发从入门到实战', learners: '130423人学习', date: '2023.11.27', hot: true, courseId: '1002' },
@@ -96,10 +96,10 @@ const articles = [
 ]
 
 const reviews = [
-  { name: '红豆杉', role: '前端开发', text: '只用了一个月的时间，学习html＋css＋js已经找到了工作，工资虽说不多，但是已经算入行了，改变了我的生活圈子和职业轨迹，坐标深圳，感谢黑马程序员，支持黑马程序员！' },
-  { name: '涩涩狸', role: 'Java工程师', text: '欠黑马程序员一套学费钱，家里底子薄，只能自学，看教程，现在有了稳定的工作，也成家了，希望黑马程序员越走越远，出新教程的时候别忘了给我来一份。' },
-  { name: '墨雨萧尘', role: 'Java工程师', text: '哈哈，我自学的找到工作了，深圳，学的java，感谢黑马程序员的老师们，特别是毕老师那忽大忽小的讲课声，多次把我从睡梦中叫醒。' },
-  { name: '秋雨寂庭', role: 'Python爱好者', text: '我现在比较高兴的是掌握了一套自学的方法，每次听完Python老师的课程，我就反复的去做去想今天所讲的知识点和项目，按照老师教的方法后，我明显的感觉我的编程概括能力提高了，能让自己去深入的理解一些项目，在自我成长的路上，我最想感谢的就是黑马程序员！' },
+  { name: '红豆杉', role: '前端开发', text: '只用了一个月的时间，学习html＋css＋js已经找到了工作，工资虽说不多，但是已经算入行了，改变了我的生活圈子和职业轨迹，坐标深圳，感谢白马程序员，支持白马程序员！' },
+  { name: '涩涩狸', role: 'Java工程师', text: '欠白马程序员一套学费钱，家里底子薄，只能自学，看教程，现在有了稳定的工作，也成家了，希望白马程序员越走越远，出新教程的时候别忘了给我来一份。' },
+  { name: '墨雨萧尘', role: 'Java工程师', text: '哈哈，我自学的找到工作了，深圳，学的java，感谢白马程序员的老师们，特别是毕老师那忽大忽小的讲课声，多次把我从睡梦中叫醒。' },
+  { name: '秋雨寂庭', role: 'Python爱好者', text: '我现在比较高兴的是掌握了一套自学的方法，每次听完Python老师的课程，我就反复的去做去想今天所讲的知识点和项目，按照老师教的方法后，我明显的感觉我的编程概括能力提高了，能让自己去深入的理解一些项目，在自我成长的路上，我最想感谢的就是白马程序员！' },
 ]
 </script>
 
@@ -357,6 +357,7 @@ const reviews = [
   font-size: 16px;
   font-weight: 700;
   color: #fff;
+  white-space: nowrap;
 }
 
 .hero-banner__side-ico {

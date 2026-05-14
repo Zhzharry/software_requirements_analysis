@@ -100,7 +100,7 @@ const sampleOffers = [
         <div class="container">
           <h2 class="svc__h2">一站式就业服务体系</h2>
           <p class="svc__lead">
-            针对不同阶段提供具有针对性、个性化的就业服务，协助支持黑马程序员学生的职业提升
+            针对不同阶段提供具有针对性、个性化的就业服务，协助支持白马程序员学生的职业提升
           </p>
 
           <div class="svc__journey">
@@ -214,7 +214,7 @@ const sampleOffers = [
 
       <p class="svc__ref">
         完整版块见原站
-        <a href="https://www.itheima.com/service.html?hm-pc-dh$hm-pc-dh$hm-pc-dh$spk" target="_blank" rel="noopener noreferrer">黑马程序员就业服务</a>
+        <a href="https://www.itheima.com/service.html?hm-pc-dh$hm-pc-dh$hm-pc-dh$spk" target="_blank" rel="noopener noreferrer">白马程序员就业服务</a>
       </p>
     </ItheimaWwwPageChrome>
 

@@ -16,7 +16,7 @@ const steps = [
 
 const campuses = [
   { id: 'bjcp', label: '北京昌平', campusName: '北京昌平校区', address: '北京市昌平区建材城西路金燕龙办公楼一层（总部）', phone: '400-618-4000' },
-  { id: 'bjsy', label: '北京顺义', campusName: '北京顺义校区', address: '北京市顺义区京顺路99号黑马程序员（教学楼A栋）', phone: '400-618-4000' },
+  { id: 'bjsy', label: '北京顺义', campusName: '北京顺义校区', address: '北京市顺义区京顺路99号白马程序员（教学楼A栋）', phone: '400-618-4000' },
   { id: 'sh', label: '上海', campusName: '上海校区', address: '上海市浦东新区航头镇航都路18号万香创新港', phone: '400-618-4000' },
   { id: 'gz', label: '广州', campusName: '广州校区', address: '广东省广州市天河区珠吉路58号津安创意园', phone: '400-618-4000' },
   { id: 'sz', label: '深圳', campusName: '深圳校区', address: '深圳市宝安区石岩镇塘头一号路创维创新谷2#B栋南区 4-5层', phone: '400-618-4000' },
@@ -68,7 +68,7 @@ const selectedSubjectId = ref('aiapp')
         <div class="sch__hero-bg" aria-hidden="true" />
         <div class="container sch__hero-inner">
           <div class="sch__hero-copy">
-            <p class="sch__hero-tag">学 AI 来黑马</p>
+            <p class="sch__hero-tag">学 AI 来白马</p>
             <h1 class="sch__hero-h1">立即报名，抢占AI黄金赛道</h1>
             <p class="sch__hero-sub">全国校区火热开班中~</p>
             <div class="sch__hero-cta">
@@ -192,7 +192,7 @@ const selectedSubjectId = ref('aiapp')
                 </div>
                 <p class="sch__footnote">
                   原型结构参考
-                  <a href="https://www.itheima.com/special/hmschool/index.shtml?hm-pc-dh$hm-pc-dh$spk" target="_blank" rel="noopener noreferrer">黑马全国校区分布</a>
+                  <a href="https://www.itheima.com/special/hmschool/index.shtml?hm-pc-dh$hm-pc-dh$spk" target="_blank" rel="noopener noreferrer">白马全国校区分布</a>
                 </p>
               </div>
             </div>

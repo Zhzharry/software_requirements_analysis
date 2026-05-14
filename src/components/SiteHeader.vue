@@ -30,7 +30,7 @@ function megaIconSvg(i) {
         <RouterLink to="/" class="site-head__brand site-head__brand--link">
           <PlaceholderImage ratio="140 / 48" class="site-head__logo" />
           <div class="site-head__brand-text">
-            <strong class="site-head__brand-name">黑马程序员</strong>
+            <strong class="site-head__brand-name">白马程序员</strong>
             <span class="site-head__brand-url">www.itheima.com</span>
           </div>
           <span class="site-head__sep" aria-hidden="true" />
@@ -138,11 +138,16 @@ function megaIconSvg(i) {
   align-items: center;
   gap: 12px;
   flex-shrink: 0;
+  flex-wrap: nowrap;
 }
 
 .site-head__brand--link {
   text-decoration: none;
   color: inherit;
+}
+
+.site-head__logo {
+  flex-shrink: 0;
 }
 
 .site-head__logo :deep(.ph__img) {
@@ -155,29 +160,37 @@ function megaIconSvg(i) {
   display: flex;
   flex-direction: column;
   line-height: 1.2;
+  flex-shrink: 0;
+  min-width: max-content;
 }
 
 .site-head__brand-name {
   font-size: 20px;
   color: var(--color-primary);
   letter-spacing: 0.02em;
+  white-space: nowrap;
 }
 
 .site-head__brand-url {
   font-size: 12px;
   color: #999;
+  white-space: nowrap;
 }
 
 .site-head__sep {
   width: 1px;
   height: 36px;
   background: #ddd;
+  flex-shrink: 0;
 }
 
 .site-head__lib {
   font-size: 18px;
   font-weight: 600;
   color: #333;
+  white-space: nowrap;
+  writing-mode: horizontal-tb;
+  flex-shrink: 0;
 }
 
 .site-head__search {

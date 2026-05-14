@@ -33,7 +33,7 @@ const mainNav = [
         <RouterLink to="/" class="iwc__logo-block">
           <PlaceholderImage ratio="160 / 48" class="iwc__logo" />
           <div class="iwc__logo-text">
-            <strong class="iwc__logo-name">黑马程序员</strong>
+            <strong class="iwc__logo-name">白马程序员</strong>
             <span class="iwc__logo-sub">好口碑IT培训机构</span>
           </div>
         </RouterLink>
@@ -118,6 +118,12 @@ const mainNav = [
   gap: 12px;
   text-decoration: none;
   color: inherit;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+}
+
+.iwc__logo {
+  flex-shrink: 0;
 }
 
 .iwc__logo :deep(.ph__img) {
@@ -126,15 +132,21 @@ const mainNav = [
   object-fit: contain;
 }
 
+.iwc__logo-text {
+  min-width: max-content;
+}
+
 .iwc__logo-name {
   display: block;
   font-size: 22px;
   color: #c8161d;
+  white-space: nowrap;
 }
 
 .iwc__logo-sub {
   font-size: 12px;
   color: #888;
+  white-space: nowrap;
 }
 
 .iwc__slogan {
@@ -189,6 +201,7 @@ const mainNav = [
   color: #333;
   padding-bottom: 4px;
   border-bottom: 2px solid transparent;
+  white-space: nowrap;
 }
 
 .iwc__nav-a:hover {

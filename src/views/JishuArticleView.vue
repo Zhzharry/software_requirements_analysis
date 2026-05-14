@@ -27,7 +27,7 @@ const article = computed(() => getJishuArticle(route.params.id))
       <article>
         <h1 class="art__title">{{ article.title }}</h1>
         <div class="art__meta">
-          <span>来源：黑马程序员</span>
+          <span>来源：白马程序员</span>
           <span>浏览{{ article.views }}人</span>
           <time :datetime="article.date">{{ article.date.replace(/-/g, '.') }}</time>
         </div>
@@ -156,6 +156,11 @@ const article = computed(() => getJishuArticle(route.params.id))
   border-bottom: 1px solid #e5e5e5;
   font-size: 13px;
   color: #666;
+}
+
+.art__meta span,
+.art__meta time {
+  white-space: nowrap;
 }
 
 .art__body {

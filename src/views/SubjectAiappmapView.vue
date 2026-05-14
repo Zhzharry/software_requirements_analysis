@@ -137,7 +137,7 @@ const notes = [
         <RouterLink to="/" class="aimap__brand">
           <PlaceholderImage ratio="120 / 40" class="aimap__logo" />
           <div class="aimap__brand-text">
-            <strong>黑马程序员</strong>
+            <strong>白马程序员</strong>
             <span>www.itheima.com</span>
           </div>
         </RouterLink>
@@ -159,7 +159,7 @@ const notes = [
 
     <main class="aimap__main">
       <div class="container">
-        <h1 class="aimap__title">黑马程序员AI智能应用开发学习路线图（2026官方完整版）</h1>
+        <h1 class="aimap__title">白马程序员AI智能应用开发学习路线图（2026官方完整版）</h1>
         <p class="aimap__tagline">
           成为驾驭「企业级应用」与「AI智能系统构建」的下一代软件开发人才！
         </p>
@@ -253,6 +253,13 @@ const notes = [
   gap: 10px;
   text-decoration: none;
   color: inherit;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+  min-width: max-content;
+}
+
+.aimap__logo {
+  flex-shrink: 0;
 }
 
 .aimap__logo :deep(.ph__img) {
@@ -265,16 +272,19 @@ const notes = [
   display: flex;
   flex-direction: column;
   line-height: 1.2;
+  min-width: max-content;
 }
 
 .aimap__brand-text strong {
   font-size: 17px;
   color: #c8161d;
+  white-space: nowrap;
 }
 
 .aimap__brand-text span {
   font-size: 11px;
   color: #999;
+  white-space: nowrap;
 }
 
 .aimap__nav {

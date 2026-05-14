@@ -188,7 +188,7 @@ const currentIndustry = computed(() => industries[activeIndustry.value])
         <h2 class="aiapp__h2">行业薪资</h2>
         <p class="aiapp__note">数据来源于职友集等统计</p>
         <ul class="aiapp__bullets">
-          <li>黑马毕业学员就职AI应用开发岗位：广州校区平均薪资14052元，最高21000元；北京昌平校区平均14641元；深圳校区平均15624元等。</li>
+          <li>白马毕业学员就职AI应用开发岗位：广州校区平均薪资14052元，最高21000元；北京昌平校区平均14641元；深圳校区平均15624元等。</li>
           <li>AI智能应用核心岗位：一线城市年薪50-80万，资深算法工程师可达百万。北京AI开发工程师约63.9%岗位薪资在20-50K/月。</li>
           <li>泛AI岗位：具备AI工具经验的开发者薪资溢价明显，全栈工程师薪资中位数约28-45K/月。</li>
         </ul>
@@ -301,7 +301,7 @@ const currentIndustry = computed(() => industries[activeIndustry.value])
 
     <footer class="aiapp__foot">
       <div class="container aiapp__foot-inner">
-        <RouterLink class="aiapp__foot-a" to="/">返回黑马程序员首页</RouterLink>
+        <RouterLink class="aiapp__foot-a" to="/">返回白马程序员首页</RouterLink>
         <a class="aiapp__foot-a" :href="TRAINING_CAMPAIGN_URL" target="_blank" rel="noopener noreferrer">打开官网落地页（对照）</a>
       </div>
     </footer>
@@ -347,6 +347,7 @@ const currentIndustry = computed(() => industries[activeIndustry.value])
 .aiapp__top-link {
   color: #333;
   cursor: default;
+  white-space: nowrap;
 }
 
 .aiapp__course-head {
@@ -378,6 +379,7 @@ const currentIndustry = computed(() => industries[activeIndustry.value])
   background: #fafafa;
   font-size: 13px;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .aiapp__course-tab--on {

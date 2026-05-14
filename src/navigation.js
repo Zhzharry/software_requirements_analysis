@@ -11,7 +11,7 @@ export const SUBJECT_AIAPPMAP_TO = '/subject/aiappmap'
 export const COLLEGE_BUPT_URL = 'https://www.bupt.edu.cn/'
 
 /**
- * 主导航「培训课程」悬停面板：5 列网格，顺序对齐黑马官网大类入口。
+ * 主导航「培训课程」悬停面板：5 列网格，顺序对齐白马官网大类入口。
  */
 export const trainingMegaMenuItems = [
   { label: 'AI智能应用开发' },

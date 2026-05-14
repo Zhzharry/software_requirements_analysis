@@ -36,7 +36,7 @@ const roadmapSteps = [
   { main: 'Java Web', sub: 'JavaWeb框架' },
   { main: '单体项目', sub: '《苍穹外卖》项目实战' },
   { main: '微服务', sub: 'Spring Cloud（微服务开发学这一套就够了）' },
-  { main: '企业级项目', sub: '《学成在线》在线教育→《黑马头条》新闻资讯' },
+  { main: '企业级项目', sub: '《学成在线》在线教育→《白马头条》新闻资讯' },
   { main: '面试专题', sub: 'Java大厂面试' },
 ]
 
@@ -142,8 +142,8 @@ const phases = [
           'Spring Cloud 微服务：Nginx、SpringBoot、Spring Cloud、MyBatis-Plus、MQ、Redis、Elasticsearch 等。',
       },
       {
-        name: 'Java项目实战微服务项目《黑马头条》开发全套视频教程',
-        meta: '【资讯项目】黑马头条',
+        name: 'Java项目实战微服务项目《白马头条》开发全套视频教程',
+        meta: '【资讯项目】白马头条',
         learners: '424679',
         date: '2023.06.13',
         summary: 'SpringBoot + Spring Cloud + Nacos 等企业级微服务架构。',

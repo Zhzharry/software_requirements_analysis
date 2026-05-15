@@ -2,7 +2,8 @@
 import { RouterLink } from 'vue-router'
 import SiteHeader from '../components/SiteHeader.vue'
 import SiteFooter from '../components/SiteFooter.vue'
-import PlaceholderImage from '../components/PlaceholderImage.vue'
+import PageResourceImg from '../components/PageResourceImg.vue'
+import { PAGE_DIR, pageImageId } from '../utils/pageResource.js'
 import { getAllGongjuTools } from '../data/gongjuTools.js'
 
 const tools = getAllGongjuTools()
@@ -19,7 +20,11 @@ const tools = getAllGongjuTools()
       <div class="gj__grid">
         <article v-for="t in tools" :key="t.id" class="gj__card">
           <RouterLink class="gj__card-link" :to="`/gongju/${t.id}`">
-            <PlaceholderImage ratio="280 / 140" />
+            <PageResourceImg
+              :src="pageImageId(PAGE_DIR.P12, 'p12', t.id)"
+              :alt="t.name"
+              ratio="280 / 140"
+            />
           </RouterLink>
           <h2 class="gj__name">
             <RouterLink class="gj__name-link" :to="`/gongju/${t.id}`">{{ t.name }}</RouterLink>

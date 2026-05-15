@@ -1,7 +1,20 @@
 <script setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { RouterLink } from 'vue-router'
-import PlaceholderImage from '../components/PlaceholderImage.vue'
+import BrandLogo from '../components/BrandLogo.vue'
+import PageResourceImg from '../components/PageResourceImg.vue'
+import { PAGE_DIR, pageImage } from '../utils/pageResource.js'
+
+/** 页头自定义 Logo：支持多种常见命名（pageImage 内会按扩展名回退到 .png 等） */
+const aimapHeadLogo = computed(() => {
+  const dir = PAGE_DIR.P16
+  const bases = ['p16-head-logo-01', 'p16-head-logo', 'p16-logo-01', 'p16-logo', 'logo']
+  for (const b of bases) {
+    const url = pageImage(dir, `${b}.webp`)
+    if (url) return url
+  }
+  return ''
+})
 
 /** 对标 https://yun.itheima.com/subject/aiappmap/index.html 横向路线图版式 */
 
@@ -135,7 +148,15 @@ const notes = [
     <header class="aimap__head">
       <div class="container aimap__head-row">
         <RouterLink to="/" class="aimap__brand">
-          <PlaceholderImage ratio="120 / 40" class="aimap__logo" />
+          <PageResourceImg
+            v-if="aimapHeadLogo"
+            class="aimap__head-img"
+            :src="aimapHeadLogo"
+            alt="白马程序员"
+            ratio="120 / 40"
+            img-class="aimap__logo"
+          />
+          <BrandLogo v-else variant="compact" class="aimap__logo" />
           <div class="aimap__brand-text">
             <strong>白马程序员</strong>
             <span>www.itheima.com</span>
@@ -262,10 +283,15 @@ const notes = [
   flex-shrink: 0;
 }
 
-.aimap__logo :deep(.ph__img) {
+.aimap__brand :deep(.aimap__head-img.pri-img),
+.aimap__brand :deep(img.aimap__logo) {
   width: 120px;
-  max-height: 40px;
+  max-width: min(120px, 36vw);
+  height: auto;
+  min-height: 28px;
   object-fit: contain;
+  display: block;
+  background: transparent;
 }
 
 .aimap__brand-text {

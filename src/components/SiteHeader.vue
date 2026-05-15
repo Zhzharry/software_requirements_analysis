@@ -1,6 +1,6 @@
 <script setup>
 import { RouterLink } from 'vue-router'
-import PlaceholderImage from './PlaceholderImage.vue'
+import BrandLogo from './BrandLogo.vue'
 import {
   mainNavItems,
   TRAINING_LANDING_TO,
@@ -28,7 +28,7 @@ function megaIconSvg(i) {
     <div class="site-head__bar site-head__bar--light">
       <div class="container site-head__bar-inner">
         <RouterLink to="/" class="site-head__brand site-head__brand--link">
-          <PlaceholderImage ratio="140 / 48" class="site-head__logo" />
+          <BrandLogo variant="header" class="site-head__logo" />
           <div class="site-head__brand-text">
             <strong class="site-head__brand-name">白马程序员</strong>
             <span class="site-head__brand-url">www.itheima.com</span>
@@ -45,7 +45,7 @@ function megaIconSvg(i) {
           <button type="button" class="site-head__search-btn" aria-label="搜索">⌕</button>
         </div>
         <div class="site-head__account">
-          <PlaceholderImage ratio="1" class="site-head__user-ico" />
+          <BrandLogo variant="avatar" class="site-head__user-ico" />
           <span class="site-head__login">登录</span>
         </div>
       </div>
@@ -150,12 +150,6 @@ function megaIconSvg(i) {
   flex-shrink: 0;
 }
 
-.site-head__logo :deep(.ph__img) {
-  width: 140px;
-  max-height: 48px;
-  object-fit: contain;
-}
-
 .site-head__brand-text {
   display: flex;
   flex-direction: column;
@@ -250,10 +244,8 @@ function megaIconSvg(i) {
   width: 28px;
 }
 
-.site-head__user-ico :deep(.ph__img) {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
+.site-head__user-ico {
+  flex-shrink: 0;
 }
 
 .site-head__login {

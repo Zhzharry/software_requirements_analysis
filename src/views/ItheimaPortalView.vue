@@ -1,10 +1,17 @@
 <script setup>
 import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
-import PlaceholderImage from '../components/PlaceholderImage.vue'
+import BrandLogo from '../components/BrandLogo.vue'
+import PortalVecIcon from '../components/portal/PortalVecIcon.vue'
 import LoginDemoModal from '../components/LoginDemoModal.vue'
 import { useDemoAuth } from '../composables/useDemoAuth.js'
 import { COLLEGE_BUPT_URL } from '../navigation.js'
+import {
+  HOME_SHELL_BG_ALT,
+  HOME_SHELL_BG_URL,
+  STUDENTS_SHOWCASE_ALT,
+  STUDENTS_SHOWCASE_URL,
+} from '../assets/brand.js'
 
 const showLogin = ref(false)
 const { user, isLoggedIn, logout } = useDemoAuth()
@@ -31,10 +38,10 @@ const heroSidebarCats = [
 ]
 
 const quickLinks = [
-  { label: '就业薪资', to: '/price' },
-  { label: '实战项目', to: '/map/22' },
-  { label: '学员社区', to: '/yun' },
-  { label: '关于白马', to: '/yun' },
+  { label: '就业薪资', to: '/price', icon: 'salary' },
+  { label: '实战项目', to: '/map/22', icon: 'project' },
+  { label: '学员社区', to: '/yun', icon: 'community' },
+  { label: '关于白马', to: '/yun', icon: 'about' },
 ]
 
 const journeyCards = [
@@ -53,14 +60,14 @@ const journeyCards = [
 ]
 
 const subjectTabs = [
-  'AI智能应用开发',
-  'AI大模型开发',
-  'AI后端开发',
-  'AI鸿蒙开发',
-  'AI嵌入式',
-  'AI测试',
-  'AI运维',
-  'AI设计',
+  { label: 'AI智能应用开发', icon: 'tab-ai' },
+  { label: 'AI大模型开发', icon: 'tab-llm' },
+  { label: 'AI后端开发', icon: 'tab-code' },
+  { label: 'AI鸿蒙开发', icon: 'tab-device' },
+  { label: 'AI嵌入式', icon: 'tab-chip' },
+  { label: 'AI测试', icon: 'tab-check' },
+  { label: 'AI运维', icon: 'tab-gear' },
+  { label: 'AI设计', icon: 'tab-design' },
 ]
 
 const activeSubject = ref(0)
@@ -83,13 +90,13 @@ const classRows = [
 
     <header class="portal__head">
       <div class="container portal__head-inner">
-        <div class="portal__brand">
-          <div class="portal__logo-mark" aria-hidden="true" />
+        <RouterLink to="/" class="portal__brand portal__brand--link">
+          <BrandLogo variant="mark" class="portal__logo-mark" />
           <div>
             <h1 class="portal__logo-title">白马程序员</h1>
             <p class="portal__logo-sub">好口碑IT培训机构</p>
           </div>
-        </div>
+        </RouterLink>
         <p class="portal__slogan">70%学员来自口碑推荐</p>
         <div class="portal__head-actions">
           <div class="portal__location" title="校区选择（示意）">
@@ -141,7 +148,12 @@ const classRows = [
     <LoginDemoModal v-model:open="showLogin" />
 
     <section class="portal__hero" aria-label="首屏">
-      <div class="portal__hero-deco" aria-hidden="true" />
+      <div
+        class="portal__hero-deco"
+        role="img"
+        :aria-label="HOME_SHELL_BG_ALT"
+        :style="{ backgroundImage: `url(${HOME_SHELL_BG_URL})` }"
+      />
       <div class="container portal__hero-layout">
         <aside class="portal__hero-side" aria-label="学科分类">
           <ul>
@@ -178,7 +190,9 @@ const classRows = [
             class="portal__quick-a"
             :to="q.to"
           >
-            <span class="portal__quick-ico" aria-hidden="true" />
+            <span class="portal__quick-ico">
+              <PortalVecIcon :name="q.icon" :size="36" />
+            </span>
             {{ q.label }}
           </RouterLink>
         </div>
@@ -208,8 +222,8 @@ const classRows = [
             :aria-selected="activeSubject === i"
             @click="activeSubject = i"
           >
-            <span class="portal__hot-tab-ico" aria-hidden="true" />
-            <span class="portal__hot-tab-text">{{ t }}</span>
+            <PortalVecIcon :name="t.icon" :size="44" class="portal__hot-tab-ico" />
+            <span class="portal__hot-tab-text">{{ t.label }}</span>
           </button>
         </div>
       </div>
@@ -223,12 +237,14 @@ const classRows = [
             <p class="portal__course-strip-label">月均薪资参考</p>
             <p class="portal__course-strip-num">14200元</p>
             <p class="portal__course-strip-note">示例数据</p>
-            <div class="portal__course-strip-icon" aria-hidden="true" />
+            <div class="portal__course-strip-icon">
+              <PortalVecIcon name="strip-trend" :size="48" />
+            </div>
           </div>
           <div class="portal__course-body">
             <div class="portal__course-top">
               <div>
-                <h3 class="portal__course-h3">{{ subjectTabs[activeSubject] }}</h3>
+                <h3 class="portal__course-h3">{{ subjectTabs[activeSubject].label }}</h3>
                 <p class="portal__course-lead">
                   从基础语法到企业级项目交付，覆盖主流技术栈与AI应用落地能力。
                 </p>
@@ -293,8 +309,18 @@ const classRows = [
 
     <section class="portal__section">
       <div class="container">
-        <h2 class="portal__h2">学生风采 · 30万+学员逆袭（占位）</h2>
-        <PlaceholderImage ratio="1200 / 320" />
+        <h2 class="portal__h2">学生风采 · 30万+学员逆袭</h2>
+        <figure class="portal__students">
+          <img
+            class="portal__students-img"
+            :src="STUDENTS_SHOWCASE_URL"
+            :alt="STUDENTS_SHOWCASE_ALT"
+            width="1200"
+            height="320"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
       </div>
     </section>
 
@@ -376,12 +402,13 @@ const classRows = [
   min-width: max-content;
 }
 
+.portal__brand--link {
+  text-decoration: none;
+  color: inherit;
+}
+
 .portal__logo-mark {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: linear-gradient(145deg, #ff6b6b 0%, var(--portal-red) 45%, var(--portal-red-dark) 100%);
-  box-shadow: 0 4px 12px rgba(200, 22, 29, 0.35);
+  flex-shrink: 0;
 }
 
 .portal__logo-title {
@@ -514,31 +541,70 @@ const classRows = [
 .portal__hero {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(125deg, #d6ecff 0%, var(--portal-hero-blue) 35%, var(--portal-hero-blue2) 70%, #fff 100%);
-  padding: 28px 0 40px;
+  background: #e8f4fc;
+  padding: 32px 0 48px;
+  min-height: 440px;
 }
 
 .portal__hero-deco {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background:
-    radial-gradient(ellipse 120% 80% at 90% 20%, rgba(99, 179, 237, 0.25), transparent 50%),
-    radial-gradient(circle at 15% 80%, rgba(147, 197, 253, 0.35), transparent 40%),
-    radial-gradient(circle at 70% 60%, rgba(186, 230, 253, 0.4), transparent 35%);
-  opacity: 0.9;
+  background-size: 128% auto;
+  background-position: 58% center;
+  background-repeat: no-repeat;
+}
+
+@media (min-width: 992px) {
+  .portal__hero-deco {
+    background-size: 135% auto;
+    background-position: 62% center;
+  }
+}
+
+.portal__hero-deco::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  /* 遮罩仅压在左侧文案区，右侧留给壳图主视觉 */
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0.65) 22%,
+    rgba(255, 255, 255, 0.25) 36%,
+    transparent 48%
+  );
 }
 
 .portal__hero-layout {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 24px;
+  grid-template-columns: 180px minmax(0, 420px);
+  gap: 20px;
   align-items: start;
+  justify-content: start;
 }
 
 @media (max-width: 768px) {
+  .portal__hero {
+    min-height: 380px;
+  }
+
+  .portal__hero-deco {
+    background-size: 165% auto;
+    background-position: 55% center;
+  }
+
+  .portal__hero-deco::after {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.88) 0%,
+      rgba(255, 255, 255, 0.5) 45%,
+      transparent 70%
+    );
+  }
+
   .portal__hero-layout {
     grid-template-columns: 1fr;
   }
@@ -546,11 +612,15 @@ const classRows = [
   .portal__hero-side {
     max-width: 100%;
   }
+
+  .portal__hero-main {
+    max-width: none;
+  }
 }
 
 .portal__hero-side {
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.58);
+  backdrop-filter: blur(6px);
   border-radius: 10px;
   box-shadow: 0 8px 28px rgba(30, 80, 140, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.9);
@@ -578,7 +648,11 @@ const classRows = [
 }
 
 .portal__hero-main {
-  padding: 8px 8px 8px 0;
+  padding: 12px 16px;
+  max-width: 420px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(4px);
 }
 
 .portal__hero-brandline {
@@ -695,12 +769,16 @@ const classRows = [
 }
 
 .portal__quick-ico {
-  width: 36px;
-  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
   border-radius: 10px;
-  background: linear-gradient(145deg, #ffe8e8, #ffc9c9);
+  background: linear-gradient(145deg, #fff5f5, #ffe8e8);
   flex-shrink: 0;
-  box-shadow: 0 2px 8px rgba(200, 22, 29, 0.12);
+  box-shadow: 0 2px 8px rgba(200, 22, 29, 0.1);
+  border: 1px solid rgba(200, 22, 29, 0.08);
 }
 
 .portal__quick-cards {
@@ -799,15 +877,13 @@ const classRows = [
 }
 
 .portal__hot-tab-ico {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: linear-gradient(160deg, #ff8a8a 0%, var(--portal-red) 50%, var(--portal-red-dark) 100%);
-  box-shadow: 0 6px 16px rgba(200, 22, 29, 0.35);
+  display: block;
+  filter: drop-shadow(0 4px 10px rgba(200, 22, 29, 0.25));
+  transition: transform 0.15s ease;
 }
 
 .portal__hot-tab--active .portal__hot-tab-ico {
-  transform: scale(1.06);
+  transform: scale(1.08);
 }
 
 .portal__hot-tab-text {
@@ -885,10 +961,13 @@ const classRows = [
 
 .portal__course-strip-icon {
   margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 56px;
   height: 56px;
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.15);
   border: 2px solid rgba(255, 255, 255, 0.35);
 }
 
@@ -1069,6 +1148,24 @@ const classRows = [
   margin: 0 0 20px;
   font-size: 20px;
   font-weight: 800;
+}
+
+.portal__students {
+  margin: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #eee;
+  box-shadow: 0 8px 28px rgba(15, 40, 80, 0.08);
+  background: #fff;
+}
+
+.portal__students-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 420px;
+  object-fit: cover;
+  object-position: center 35%;
 }
 
 .portal__muted {

@@ -3,7 +3,8 @@ import { computed } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 import SiteHeader from '../components/SiteHeader.vue'
 import SiteFooter from '../components/SiteFooter.vue'
-import PlaceholderImage from '../components/PlaceholderImage.vue'
+import PageResourceImg from '../components/PageResourceImg.vue'
+import { PAGE_DIR, pageImage } from '../utils/pageResource.js'
 import { getJishuArticle } from '../data/jishuArticles.js'
 
 const route = useRoute()
@@ -79,7 +80,12 @@ const article = computed(() => getJishuArticle(route.params.id))
           </div>
           <ul class="art__course-list">
             <li v-for="(c, ci) in article.courses" :key="ci" class="art__course-item">
-              <PlaceholderImage ratio="120 / 68" class="art__course-thumb" />
+              <PageResourceImg
+                :src="pageImage(PAGE_DIR.P11, 'p11-default-course-01.webp')"
+                alt="推荐课程"
+                ratio="120 / 68"
+                img-class="art__course-thumb"
+              />
               <div>
                 <p class="art__course-name">{{ c.title }}</p>
                 <p class="art__course-meta">{{ c.level }} · {{ c.learners }}人学习 · {{ c.score }}</p>

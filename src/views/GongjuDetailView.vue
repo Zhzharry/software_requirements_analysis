@@ -3,7 +3,8 @@ import { computed } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 import SiteHeader from '../components/SiteHeader.vue'
 import SiteFooter from '../components/SiteFooter.vue'
-import PlaceholderImage from '../components/PlaceholderImage.vue'
+import PageResourceImg from '../components/PageResourceImg.vue'
+import { PAGE_DIR, pageImageIdPart } from '../utils/pageResource.js'
 import { getGongjuTool } from '../data/gongjuTools.js'
 
 const route = useRoute()
@@ -24,7 +25,11 @@ const tool = computed(() => getGongjuTool(route.params.id))
 
       <header class="gt__head">
         <div class="gt__thumb">
-          <PlaceholderImage ratio="1" />
+          <PageResourceImg
+            :src="pageImageIdPart(PAGE_DIR.P13, 'p13', route.params.id, 'icon')"
+            :alt="tool.name"
+            ratio="1"
+          />
         </div>
         <div class="gt__head-body">
           <h1 class="gt__title">{{ tool.name }}</h1>
@@ -68,7 +73,12 @@ const tool = computed(() => getGongjuTool(route.params.id))
         </div>
         <ul class="gt__course-list">
           <li v-for="(c, ci) in tool.courses" :key="ci" class="gt__course-item">
-            <PlaceholderImage ratio="120 / 68" class="gt__course-thumb" />
+            <PageResourceImg
+              :src="pageImageIdPart(PAGE_DIR.P13, 'p13', route.params.id, 'course')"
+              :alt="c.title"
+              ratio="120 / 68"
+              img-class="gt__course-thumb"
+            />
             <div>
               <p class="gt__course-name">{{ c.title }}</p>
               <p class="gt__course-meta">{{ c.level }} · {{ c.learners }}人学习 · {{ c.score }}</p>

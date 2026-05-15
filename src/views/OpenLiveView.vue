@@ -2,7 +2,8 @@
 import { RouterLink } from 'vue-router'
 import SiteHeader from '../components/SiteHeader.vue'
 import SiteFooter from '../components/SiteFooter.vue'
-import PlaceholderImage from '../components/PlaceholderImage.vue'
+import PageResourceImg from '../components/PageResourceImg.vue'
+import { PAGE_DIR, pageImageAt } from '../utils/pageResource.js'
 
 const subjectFilters = ['全部', 'Java', 'HTML&JS+前端', 'Python+大数据开发', '人工智能开发', '产品经理']
 const directionFilters = ['全部', '入门', '零基础', '精品公开课', '就业指导', '前景分析']
@@ -45,7 +46,11 @@ const courses = [
         <li v-for="(c, i) in courses" :key="i" class="open__item">
           <RouterLink class="open__item-link" :to="`/course/${c.courseId}`">
             <div class="open__thumb">
-              <PlaceholderImage ratio="16 / 9" />
+              <PageResourceImg
+                :src="pageImageAt(PAGE_DIR.P09, 'p09-live', i)"
+                :alt="c.title"
+                ratio="16 / 9"
+              />
             </div>
             <div class="open__body">
               <h2 class="open__course-title">{{ c.title }}</h2>

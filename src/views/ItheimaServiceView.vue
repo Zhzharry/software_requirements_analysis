@@ -1,7 +1,8 @@
 <script setup>
 import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
-import PlaceholderImage from '../components/PlaceholderImage.vue'
+import PageResourceImg from '../components/PageResourceImg.vue'
+import { PAGE_DIR, pageImage } from '../utils/pageResource.js'
 import ItheimaWwwPageChrome from '../components/ItheimaWwwPageChrome.vue'
 
 const journeyCards = [
@@ -87,7 +88,11 @@ const sampleOffers = [
     <ItheimaWwwPageChrome active-nav="service">
       <section class="svc__hero" aria-label="就业服务主视觉">
         <div class="svc__hero-media">
-          <PlaceholderImage ratio="21 / 7" />
+          <PageResourceImg
+            :src="pageImage(PAGE_DIR.P08, 'p08-top-banner-01.webp')"
+            alt="就业服务"
+            ratio="21 / 7"
+          />
         </div>
         <div class="svc__hero-mask" aria-hidden="true" />
         <div class="container svc__hero-copy">
@@ -112,7 +117,11 @@ const sampleOffers = [
                   <li v-for="(b, bi) in card.bullets" :key="bi">{{ b }}</li>
                 </ul>
                 <div class="svc__jcard-ph">
-                  <PlaceholderImage ratio="16 / 10" />
+                  <PageResourceImg
+                    :src="pageImage(PAGE_DIR.P08, 'p08-section-01.webp')"
+                    alt=""
+                    ratio="16 / 10"
+                  />
                 </div>
               </article>
               <span v-if="i < journeyCards.length - 1" class="svc__jarrow" aria-hidden="true">→</span>
@@ -155,7 +164,12 @@ const sampleOffers = [
               </p>
             </div>
             <div class="svc__course-right">
-              <PlaceholderImage ratio="4 / 3" />
+              <PageResourceImg
+                :src="pageImage(PAGE_DIR.P08, 'p08-aside-01.webp')"
+                alt="课程阶段与岗位能力模型对齐示意图"
+                ratio="21 / 9"
+                img-class="svc__course-aside-img"
+              />
             </div>
           </div>
         </div>
@@ -455,6 +469,10 @@ const sampleOffers = [
   border: 1px solid #d6e6f7;
 }
 
+.svc__course-right {
+  min-width: 0;
+}
+
 @media (max-width: 900px) {
   .svc__course-panel {
     grid-template-columns: 1fr;
@@ -505,11 +523,18 @@ const sampleOffers = [
   color: #444;
 }
 
+.svc__course-right :deep(.pri-img),
 .svc__course-right :deep(.ph__img) {
   width: 100%;
   border-radius: 8px;
   border: 2px solid #fff;
   box-shadow: 0 6px 20px rgba(0, 80, 160, 0.12);
+}
+
+/* 超宽信息图：contain 完整缩入栏内，避免 cover 裁切左右 */
+.svc__course-right :deep(.svc__course-aside-img) {
+  object-fit: contain;
+  background: linear-gradient(180deg, #e8f4fc 0%, #dbeaf8 100%);
 }
 
 .svc__secret {

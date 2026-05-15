@@ -1,7 +1,8 @@
 <script setup>
 import { computed, ref } from 'vue'
 import { RouterLink } from 'vue-router'
-import PlaceholderImage from '../components/PlaceholderImage.vue'
+import PageResourceImg from '../components/PageResourceImg.vue'
+import { PAGE_DIR, pageImage, pageImageAt } from '../utils/pageResource.js'
 import ItheimaWwwPageChrome from '../components/ItheimaWwwPageChrome.vue'
 
 const highlights = [
@@ -80,7 +81,11 @@ const filterStandards = [
             <p class="tp__hero-sub">来自产业一线的工程师教师队伍</p>
           </div>
           <div class="tp__hero-photo">
-            <PlaceholderImage ratio="21 / 9" />
+            <PageResourceImg
+              :src="pageImage(PAGE_DIR.P05, 'p05-hero-01.webp')"
+              alt="师资力量主视觉"
+              ratio="21 / 9"
+            />
           </div>
         </div>
       </section>
@@ -111,7 +116,11 @@ const filterStandards = [
                 <div class="tp__car-track">
                   <article v-for="(t, ti) in visibleTeachers" :key="`${carouselStart}-${ti}`" class="tp__tcard">
                     <div class="tp__tcard-photo">
-                      <PlaceholderImage ratio="3 / 4" />
+                      <PageResourceImg
+                        :src="pageImageAt(PAGE_DIR.P05, 'p05-teacher', carouselStart + ti)"
+                        :alt="t.name"
+                        ratio="3 / 4"
+                      />
                     </div>
                     <h3 class="tp__tcard-name">{{ t.name }}</h3>
                     <p class="tp__tcard-role">{{ t.role }}</p>

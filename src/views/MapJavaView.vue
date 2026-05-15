@@ -2,7 +2,8 @@
 import { RouterLink } from 'vue-router'
 import SiteHeader from '../components/SiteHeader.vue'
 import SiteFooter from '../components/SiteFooter.vue'
-import PlaceholderImage from '../components/PlaceholderImage.vue'
+import PageResourceImg from '../components/PageResourceImg.vue'
+import { PAGE_DIR, pageImageAt } from '../utils/pageResource.js'
 
 /** 左侧「热门学科」——原型中均指向本页 /map/22，当前页高亮「AI智能应用开发」 */
 const MAP_ROUTE = '/map/22'
@@ -250,7 +251,11 @@ const crossLinks = [
           <ul class="jm__course-list">
             <li v-for="(c, ci) in ph.courses" :key="ci" class="jm__course">
               <div class="jm__course-thumb">
-                <PlaceholderImage ratio="16 / 10" />
+                <PageResourceImg
+                  :src="pageImageAt(PAGE_DIR.P04, 'p04-card', pi * 10 + ci)"
+                  :alt="c.name"
+                  ratio="16 / 10"
+                />
               </div>
               <div class="jm__course-mid">
                 <h3 class="jm__course-title-row">

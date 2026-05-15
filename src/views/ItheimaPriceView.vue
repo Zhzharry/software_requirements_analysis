@@ -2,6 +2,8 @@
 import { computed, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import ItheimaWwwPageChrome from '../components/ItheimaWwwPageChrome.vue'
+import PageResourceImg from '../components/PageResourceImg.vue'
+import { PAGE_DIR, pageImage } from '../utils/pageResource.js'
 
 const subjectTabs = [
   { id: 'aiapp', label: 'AI智能应用开发' },
@@ -125,6 +127,13 @@ const faqChunks = [
 
       <section class="prc__zone">
         <div class="container">
+          <PageResourceImg
+            v-if="pageImage(PAGE_DIR.P07, 'p07-banner-01.webp')"
+            class="prc__optional-banner"
+            :src="pageImage(PAGE_DIR.P07, 'p07-banner-01.webp')"
+            alt="学费优惠"
+            ratio="1200 / 240"
+          />
           <h2 class="prc__zone-title">
             <span class="prc__deco" aria-hidden="true"></span>
             新学员专区
@@ -290,6 +299,12 @@ const faqChunks = [
 .prc__zone {
   padding: 32px 0 28px;
   background: #fff;
+}
+
+.prc__optional-banner {
+  margin-bottom: 20px;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .prc__zone-title {

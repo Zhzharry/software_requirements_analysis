@@ -1,7 +1,8 @@
 <script setup>
 import { computed, ref } from 'vue'
 import { RouterLink } from 'vue-router'
-import PlaceholderImage from '../components/PlaceholderImage.vue'
+import PageResourceImg from '../components/PageResourceImg.vue'
+import { PAGE_DIR, pageImage } from '../utils/pageResource.js'
 import ItheimaWwwPageChrome from '../components/ItheimaWwwPageChrome.vue'
 
 const findMode = ref('campus')
@@ -77,7 +78,11 @@ const selectedSubjectId = ref('aiapp')
             </div>
           </div>
           <div class="sch__hero-media">
-            <PlaceholderImage ratio="16 / 10" />
+            <PageResourceImg
+              :src="pageImage(PAGE_DIR.P06, 'p06-hero-01.webp')"
+              alt="开班详情"
+              ratio="16 / 10"
+            />
           </div>
         </div>
       </section>

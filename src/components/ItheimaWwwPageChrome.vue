@@ -1,6 +1,6 @@
 <script setup>
 import { RouterLink } from 'vue-router'
-import PlaceholderImage from './PlaceholderImage.vue'
+import BrandLogo from './BrandLogo.vue'
 import { COLLEGE_BUPT_URL } from '../navigation.js'
 
 defineProps({
@@ -31,7 +31,7 @@ const mainNav = [
     <header class="iwc__brand">
       <div class="container iwc__brand-inner">
         <RouterLink to="/" class="iwc__logo-block">
-          <PlaceholderImage ratio="160 / 48" class="iwc__logo" />
+          <BrandLogo variant="header" class="iwc__logo" />
           <div class="iwc__logo-text">
             <strong class="iwc__logo-name">白马程序员</strong>
             <span class="iwc__logo-sub">好口碑IT培训机构</span>
@@ -126,10 +126,8 @@ const mainNav = [
   flex-shrink: 0;
 }
 
-.iwc__logo :deep(.ph__img) {
-  width: 160px;
-  max-height: 48px;
-  object-fit: contain;
+.iwc__logo {
+  flex-shrink: 0;
 }
 
 .iwc__logo-text {

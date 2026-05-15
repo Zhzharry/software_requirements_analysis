@@ -2,7 +2,8 @@
 import { RouterLink } from 'vue-router'
 import SiteHeader from '../components/SiteHeader.vue'
 import SiteFooter from '../components/SiteFooter.vue'
-import PlaceholderImage from '../components/PlaceholderImage.vue'
+import PageResourceImg from '../components/PageResourceImg.vue'
+import { PAGE_DIR, pageImage } from '../utils/pageResource.js'
 import { getAllJishuArticles } from '../data/jishuArticles.js'
 
 const articles = getAllJishuArticles()
@@ -66,7 +67,12 @@ const hotCourses = [
         <ul class="jishu__hot-list">
           <li v-for="(h, i) in hotCourses" :key="i" class="jishu__hot-item">
             <RouterLink class="jishu__hot-link" to="/course/1002">
-              <PlaceholderImage ratio="120 / 68" class="jishu__hot-thumb" />
+              <PageResourceImg
+                :src="pageImage(PAGE_DIR.P10, 'p10-hot-thumb-01.webp')"
+                alt=""
+                ratio="120 / 68"
+                img-class="jishu__hot-thumb"
+              />
               <div>
                 <p class="jishu__hot-name">{{ h.title }}</p>
                 <p class="jishu__hot-meta">{{ h.level }} · {{ h.learners }}人学习 · {{ h.score }}</p>

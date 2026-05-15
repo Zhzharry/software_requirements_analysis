@@ -1,7 +1,8 @@
 <script setup>
 import SiteHeader from '../components/SiteHeader.vue'
 import SiteFooter from '../components/SiteFooter.vue'
-import PlaceholderImage from '../components/PlaceholderImage.vue'
+import PageResourceImg from '../components/PageResourceImg.vue'
+import { PAGE_DIR, pageImage, pageImageAt } from '../utils/pageResource.js'
 
 const pmTabs = ['视频教程', '技术解析', '配套源码', '学习笔记', '学习工具', '学习交流']
 
@@ -104,7 +105,12 @@ const phases = [
   <SiteHeader />
   <main class="pm">
     <div class="pm__banner">
-      <PlaceholderImage ratio="1200 / 200" />
+      <PageResourceImg
+        :src="pageImage(PAGE_DIR.P03, 'p03-top-banner-01.webp')"
+        alt="产品经理页顶 Banner"
+        ratio="1200 / 360"
+        img-class="pm__banner-img"
+      />
     </div>
     <div class="container pm__inner">
       <nav class="pm__crumb" aria-label="面包屑">视频教程 <span class="pm__crumb-sep">/</span> 产品经理</nav>
@@ -114,7 +120,11 @@ const phases = [
           <button v-for="(t, i) in pmTabs" :key="i" type="button" class="pm__tab" :class="{ 'pm__tab--on': i === 0 }">{{ t }}</button>
         </div>
         <div class="pm__dl">
-          <PlaceholderImage ratio="320 / 48" />
+          <PageResourceImg
+            :src="pageImage(PAGE_DIR.P03, 'p03-side-logo-01.webp')"
+            alt="下载区 Logo"
+            ratio="320 / 48"
+          />
           <span class="pm__dl-text">一键下载 · 以下课程</span>
         </div>
       </div>
@@ -129,7 +139,11 @@ const phases = [
         <ul class="pm__course-list">
           <li v-for="(c, ci) in ph.courses" :key="ci" class="pm__course">
             <div class="pm__course-media">
-              <PlaceholderImage ratio="16 / 9" />
+              <PageResourceImg
+                :src="pageImageAt(PAGE_DIR.P03, 'p03-course', pi * 10 + ci)"
+                :alt="c.name"
+                ratio="16 / 9"
+              />
             </div>
             <div class="pm__course-body">
               <h3 class="pm__course-name">{{ c.name }}</h3>
@@ -155,6 +169,12 @@ const phases = [
 .pm__banner :deep(.ph__img) {
   width: 100%;
   display: block;
+}
+
+/* 通栏 Banner：加高占位 + contain 避免人物/文案被 cover 裁切 */
+.pm__banner :deep(.pm__banner-img) {
+  object-fit: contain;
+  background: linear-gradient(180deg, #eceff1 0%, #dfe3e6 100%);
 }
 
 .pm__inner {

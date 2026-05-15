@@ -1,6 +1,7 @@
 <script setup>
 import { RouterLink } from 'vue-router'
-import PlaceholderImage from '../components/PlaceholderImage.vue'
+import PageResourceImg from '../components/PageResourceImg.vue'
+import { PAGE_DIR, pageImage, pageImageAt } from '../utils/pageResource.js'
 import SectionTitle from '../components/SectionTitle.vue'
 import SiteHeader from '../components/SiteHeader.vue'
 import SiteFooter from '../components/SiteFooter.vue'
@@ -109,7 +110,11 @@ const reviews = [
   <main>
     <section class="hero-banner" aria-label="首屏推广">
       <div class="hero-banner__bg">
-        <PlaceholderImage ratio="16 / 6" />
+        <PageResourceImg
+          :src="pageImage(PAGE_DIR.P02, 'p02-hero-banner-01.webp')"
+          alt="视频库首屏 Banner"
+          ratio="16 / 6"
+        />
       </div>
       <div class="container hero-banner__layout">
         <aside class="hero-banner__side" aria-label="学科分类">
@@ -142,7 +147,12 @@ const reviews = [
         </div>
         <aside class="hero-banner__float" aria-label="快捷入口">
           <button v-for="(a, i) in heroFloatActions" :key="i" type="button" class="hero-banner__float-item" :data-tone="a.tone">
-            <PlaceholderImage ratio="1" class="hero-banner__float-ico" />
+            <PageResourceImg
+              :src="pageImageAt(PAGE_DIR.P02, 'p02-float', i)"
+              alt=""
+              ratio="1"
+              img-class="hero-banner__float-ico"
+            />
             <span class="hero-banner__float-text">{{ a.label }}</span>
           </button>
         </aside>
@@ -152,7 +162,11 @@ const reviews = [
     <section class="section">
       <div class="container promo">
         <article v-for="(c, i) in promoCards" :key="i" class="promo__card">
-          <PlaceholderImage ratio="280 / 120" />
+          <PageResourceImg
+            :src="pageImageAt(PAGE_DIR.P02, 'p02-promo', i)"
+            alt=""
+            ratio="280 / 120"
+          />
           <h3 class="promo__title">{{ c.title }}</h3>
           <p class="promo__desc">{{ c.desc }}</p>
         </article>
@@ -169,7 +183,11 @@ const reviews = [
             class="card-live card-live--link"
             :to="`/course/${c.courseId}`"
           >
-            <PlaceholderImage ratio="16 / 9" />
+            <PageResourceImg
+              :src="pageImageAt(PAGE_DIR.P02, 'p02-live', i)"
+              :alt="c.title"
+              ratio="16 / 9"
+            />
             <h3 class="card-live__title">{{ c.title }}</h3>
             <div class="card-live__meta">
               <span class="card-live__learners">{{ c.learners }}</span>
@@ -193,7 +211,11 @@ const reviews = [
           >
             <div class="card-free__thumb-wrap">
               <span v-if="c.hot" class="card-free__badge">热门</span>
-              <PlaceholderImage ratio="16 / 9" />
+              <PageResourceImg
+                :src="pageImageAt(PAGE_DIR.P02, 'p02-free', i)"
+                :alt="c.title"
+                ratio="16 / 9"
+              />
             </div>
             <h3 class="card-free__title"><em class="card-free__tag">{{ c.tag }}</em>{{ c.title }}</h3>
             <div class="card-free__meta">
@@ -217,7 +239,11 @@ const reviews = [
             target="_blank"
             rel="noopener noreferrer"
           >
-            <PlaceholderImage ratio="220 / 120" />
+            <PageResourceImg
+              :src="pageImageAt(PAGE_DIR.P02, 'p02-road', i)"
+              :alt="r.title"
+              ratio="220 / 120"
+            />
             <h3 class="card-road__title">{{ r.title }}</h3>
             <p class="card-road__slogan">{{ r.slogan }}</p>
             <span class="card-road__link">查看学习路线</span>
@@ -232,7 +258,12 @@ const reviews = [
           <SectionTitle title="热门学习工具" />
           <ul class="tool-list">
             <li v-for="(t, i) in tools" :key="i" class="tool-list__item">
-              <PlaceholderImage ratio="64 / 64" class="tool-list__icon" />
+              <PageResourceImg
+                :src="pageImageAt(PAGE_DIR.P02, 'p02-tool-ico', i)"
+                :alt="t.name"
+                ratio="64 / 64"
+                img-class="tool-list__icon"
+              />
               <div class="tool-list__text">
                 <h4 class="tool-list__name">{{ t.name }}</h4>
                 <p class="tool-list__desc">{{ t.desc }}</p>
@@ -268,7 +299,12 @@ const reviews = [
         <div class="grid-review">
           <blockquote v-for="(r, i) in reviews" :key="i" class="review">
             <div class="review__head">
-              <PlaceholderImage ratio="1" class="review__avatar" />
+              <PageResourceImg
+                :src="pageImageAt(PAGE_DIR.P02, 'p02-review-av', i)"
+                :alt="r.name"
+                ratio="1"
+                img-class="review__avatar"
+              />
               <div>
                 <strong class="review__name">{{ r.name }}</strong>
                 <span class="review__role">{{ r.role }}</span>

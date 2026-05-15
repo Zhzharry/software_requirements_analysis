@@ -3,7 +3,8 @@ import { computed, ref } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 import SiteHeader from '../components/SiteHeader.vue'
 import SiteFooter from '../components/SiteFooter.vue'
-import PlaceholderImage from '../components/PlaceholderImage.vue'
+import PageResourceImg from '../components/PageResourceImg.vue'
+import { PAGE_DIR, pageImageIdPart, pageImageAt } from '../utils/pageResource.js'
 import { getCourseDetail } from '../data/courseDetails.js'
 
 const route = useRoute()
@@ -35,7 +36,11 @@ const activeLesson = ref(0)
         </div>
 
         <div class="cd__player">
-          <PlaceholderImage ratio="16 / 9" />
+          <PageResourceImg
+            :src="pageImageIdPart(PAGE_DIR.P14, 'p14', route.params.id, 'cover')"
+            :alt="course.title"
+            ratio="16 / 9"
+          />
           <button type="button" class="cd__play-btn" aria-label="播放">▶</button>
         </div>
 
@@ -119,7 +124,11 @@ const activeLesson = ref(0)
         </div>
         <button type="button" class="cd__btn-dl">一键免费下载</button>
         <div class="cd__qr">
-          <PlaceholderImage ratio="1" />
+          <PageResourceImg
+            :src="pageImageIdPart(PAGE_DIR.P14, 'p14', route.params.id, 'qrcode')"
+            alt="扫码关注"
+            ratio="1"
+          />
           <p class="cd__qr-tip">扫码关注，回复关键词，马上领取全套视频资源！</p>
         </div>
         <section class="cd__notice">
@@ -137,7 +146,11 @@ const activeLesson = ref(0)
           <span class="cd__share-ico" title="微信">信</span>
         </div>
         <div class="cd__ad">
-          <PlaceholderImage ratio="280 / 100" />
+          <PageResourceImg
+            :src="pageImageIdPart(PAGE_DIR.P14, 'p14', route.params.id, 'related')"
+            alt="推广"
+            ratio="280 / 100"
+          />
           <div class="cd__ad-cap">
             <span>大同数据科技职业学院</span>
             <button type="button" class="cd__ad-btn">快速领取</button>

@@ -1,7 +1,11 @@
 <script setup>
 import { computed, ref } from 'vue'
 import { RouterLink } from 'vue-router'
-import PlaceholderImage from '../components/PlaceholderImage.vue'
+import BrandLogo from '../components/BrandLogo.vue'
+import PageResourceImg from '../components/PageResourceImg.vue'
+import AiappGeomCollage from '../components/aiapp/AiappGeomCollage.vue'
+import AiappFeatIconMosaic from '../components/aiapp/AiappFeatIconMosaic.vue'
+import { PAGE_DIR, pageImage } from '../utils/pageResource.js'
 import { TRAINING_CAMPAIGN_URL } from '../navigation.js'
 
 const topLinks = ['免费教程', '原创书籍', '教研团队', '开班时间', '报名流程', '项目信息站', '技术社区']
@@ -133,7 +137,10 @@ const currentIndustry = computed(() => industries[activeIndustry.value])
   <div class="aiapp">
     <header class="aiapp__top">
       <div class="container aiapp__top-inner">
-        <p class="aiapp__brand-line">传智教育（股票代码 003032）旗下高端IT教育品牌</p>
+        <RouterLink to="/" class="aiapp__brand-row">
+          <BrandLogo variant="compact" />
+          <p class="aiapp__brand-line">传智教育（股票代码 003032）旗下高端IT教育品牌</p>
+        </RouterLink>
         <nav class="aiapp__top-nav" aria-label="顶部快捷">
           <span v-for="(l, i) in topLinks" :key="i" class="aiapp__top-link">{{ l }}</span>
         </nav>
@@ -167,7 +174,11 @@ const currentIndustry = computed(() => industries[activeIndustry.value])
           </div>
         </div>
         <div class="aiapp__hero-visual">
-          <PlaceholderImage ratio="16 / 11" />
+          <PageResourceImg
+            :src="pageImage(PAGE_DIR.P15, 'p15-hero-01.webp')"
+            alt="AI智能应用开发"
+            ratio="16 / 11"
+          />
         </div>
       </div>
     </section>
@@ -175,7 +186,9 @@ const currentIndustry = computed(() => industries[activeIndustry.value])
     <section class="aiapp__features">
       <div class="container aiapp__features-grid">
         <article v-for="(c, i) in featureCards" :key="i" class="aiapp__feat" :data-tone="c.tone">
-          <div class="aiapp__feat-ico" aria-hidden="true" />
+          <div class="aiapp__feat-ico" aria-hidden="true">
+            <AiappFeatIconMosaic :tone="c.tone" />
+          </div>
           <h3 class="aiapp__feat-title">{{ c.title }} <span class="aiapp__chev">&gt;</span></h3>
           <p v-for="(line, li) in c.lines" :key="li" class="aiapp__feat-line">{{ line }}</p>
           <p class="aiapp__feat-hint">{{ c.hint }}</p>
@@ -242,7 +255,7 @@ const currentIndustry = computed(() => industries[activeIndustry.value])
           <p class="aiapp__ind-copy">{{ currentIndustry.lead }}</p>
           <div class="aiapp__ind-body">
             <div class="aiapp__ind-diagram">
-              <PlaceholderImage ratio="4 / 3" />
+              <AiappGeomCollage variant="industry" :palette-index="activeIndustry" />
               <p class="aiapp__diagram-cap">{{ currentIndustry.diagramTitle }}</p>
             </div>
             <div class="aiapp__ind-cards">
@@ -291,7 +304,7 @@ const currentIndustry = computed(() => industries[activeIndustry.value])
           </div>
           <div class="aiapp__talent-video">
             <div class="aiapp__video-frame">
-              <PlaceholderImage ratio="16 / 10" />
+              <AiappGeomCollage variant="section" />
               <span class="aiapp__video-cap">双轨能力 横扫高薪战场</span>
             </div>
           </div>
@@ -331,6 +344,15 @@ const currentIndustry = computed(() => industries[activeIndustry.value])
   justify-content: space-between;
   gap: 8px;
   padding: 8px 16px;
+}
+
+.aiapp__brand-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+  flex-shrink: 0;
 }
 
 .aiapp__brand-line {
@@ -550,22 +572,10 @@ const currentIndustry = computed(() => industries[activeIndustry.value])
   height: 44px;
   border-radius: 8px;
   margin-bottom: 10px;
-}
-
-.aiapp__feat[data-tone='gold'] .aiapp__feat-ico {
-  background: linear-gradient(135deg, #ffd56b, #e6a800);
-}
-
-.aiapp__feat[data-tone='green'] .aiapp__feat-ico {
-  background: linear-gradient(135deg, #5ecf8a, #1fa85a);
-}
-
-.aiapp__feat[data-tone='blue'] .aiapp__feat-ico {
-  background: linear-gradient(135deg, #6eb6ff, #1a6fd4);
-}
-
-.aiapp__feat[data-tone='red'] .aiapp__feat-ico {
-  background: linear-gradient(135deg, #ff8a8a, #e02020);
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
 .aiapp__feat-title {
@@ -739,9 +749,10 @@ const currentIndustry = computed(() => industries[activeIndustry.value])
   }
 }
 
-.aiapp__ind-diagram :deep(.ph__img) {
+.aiapp__ind-diagram :deep(.geom) {
   width: 100%;
   border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
 .aiapp__diagram-cap {
@@ -898,7 +909,7 @@ const currentIndustry = computed(() => industries[activeIndustry.value])
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
 }
 
-.aiapp__video-frame :deep(.ph__img) {
+.aiapp__video-frame :deep(.geom) {
   width: 100%;
   display: block;
 }

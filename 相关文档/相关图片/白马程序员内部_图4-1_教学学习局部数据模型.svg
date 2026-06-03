@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="640" viewBox="0 0 1180 640">
+  <defs>
+    <style>
+      .box { fill:#eeeeee; stroke:#333333; stroke-width:2; }
+      .rel { fill:#ffffff; stroke:#333333; stroke-width:2; }
+      .line { stroke:#333333; stroke-width:2; fill:none; }
+      .txt { font-family:"Microsoft YaHei", "SimSun", Arial, sans-serif; font-size:24px; fill:#222222; text-anchor:middle; dominant-baseline:middle; }
+      .card { font-family:Arial, sans-serif; font-size:20px; fill:#222222; text-anchor:middle; dominant-baseline:middle; }
+      .title { font-family:"Microsoft YaHei", "SimSun", Arial, sans-serif; font-size:26px; font-weight:600; fill:#222222; text-anchor:middle; }
+    </style>
+  </defs>
+
+  <text x="590" y="34" class="title">白马程序员内部系统教学与学习管理局部数据模型</text>
+
+  <rect x="70" y="70" width="180" height="72" class="box"/>
+  <text x="160" y="106" class="txt">内部用户</text>
+
+  <polygon points="160,184 270,244 160,304 50,244" class="rel"/>
+  <text x="160" y="244" class="txt">负责</text>
+
+  <rect x="70" y="346" width="180" height="72" class="box"/>
+  <text x="160" y="382" class="txt">班级</text>
+
+  <polygon points="370,382 480,442 370,502 260,442" class="rel"/>
+  <text x="370" y="442" class="txt">包含</text>
+
+  <rect x="530" y="406" width="180" height="72" class="box"/>
+  <text x="620" y="442" class="txt">学员</text>
+
+  <polygon points="830,442 940,502 830,562 720,502" class="rel"/>
+  <text x="830" y="502" class="txt">产生</text>
+
+  <rect x="980" y="466" width="180" height="72" class="box"/>
+  <text x="1070" y="502" class="txt">学习进度</text>
+
+  <polygon points="370,120 480,180 370,240 260,180" class="rel"/>
+  <text x="370" y="180" class="txt">开设</text>
+
+  <rect x="530" y="144" width="180" height="72" class="box"/>
+  <text x="620" y="180" class="txt">课程</text>
+
+  <polygon points="830,180 940,240 830,300 720,240" class="rel"/>
+  <text x="830" y="240" class="txt">包含</text>
+
+  <rect x="980" y="204" width="180" height="72" class="box"/>
+  <text x="1070" y="240" class="txt">课程章节</text>
+
+  <polygon points="830,60 940,120 830,180 720,120" class="rel"/>
+  <text x="830" y="120" class="txt">关联</text>
+
+  <rect x="980" y="84" width="180" height="72" class="box"/>
+  <text x="1070" y="120" class="txt">教学资源</text>
+
+  <polygon points="620,278 730,338 620,398 510,338" class="rel"/>
+  <text x="620" y="338" class="txt">发布</text>
+
+  <rect x="780" y="302" width="180" height="72" class="box"/>
+  <text x="870" y="338" class="txt">作业/考试</text>
+
+  <line x1="160" y1="142" x2="160" y2="184" class="line"/>
+  <text x="174" y="166" class="card">1</text>
+  <line x1="160" y1="304" x2="160" y2="346" class="line"/>
+  <text x="174" y="326" class="card">m</text>
+
+  <line x1="250" y1="382" x2="260" y2="442" class="line"/>
+  <text x="270" y="410" class="card">1</text>
+  <line x1="480" y1="442" x2="530" y2="442" class="line"/>
+  <text x="505" y="428" class="card">m</text>
+
+  <line x1="710" y1="442" x2="720" y2="502" class="line"/>
+  <text x="730" y="472" class="card">1</text>
+  <line x1="940" y1="502" x2="980" y2="502" class="line"/>
+  <text x="960" y="488" class="card">m</text>
+
+  <line x1="250" y1="346" x2="260" y2="180" class="line"/>
+  <text x="276" y="258" class="card">1</text>
+  <line x1="480" y1="180" x2="530" y2="180" class="line"/>
+  <text x="505" y="166" class="card">1</text>
+
+  <line x1="710" y1="180" x2="720" y2="240" class="line"/>
+  <text x="730" y="208" class="card">1</text>
+  <line x1="940" y1="240" x2="980" y2="240" class="line"/>
+  <text x="960" y="226" class="card">m</text>
+
+  <line x1="980" y1="120" x2="940" y2="120" class="line"/>
+  <text x="960" y="106" class="card">m</text>
+  <line x1="830" y1="180" x2="830" y2="204" class="line"/>
+  <text x="848" y="194" class="card">m</text>
+
+  <line x1="620" y1="216" x2="620" y2="278" class="line"/>
+  <text x="638" y="248" class="card">1</text>
+  <line x1="730" y1="338" x2="780" y2="338" class="line"/>
+  <text x="755" y="324" class="card">m</text>
+</svg>
